@@ -47,6 +47,9 @@ export async function getServerSideProps({
   query: { adminId, posterId },
 }) {
   const userAgent = req.headers["user-agent"];
+  // const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+  // console.log("ip", ip);
 
   const isMobileView = userAgent.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i

