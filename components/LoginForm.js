@@ -145,11 +145,13 @@ function LoginForm() {
                   autoComplete="on"
                   required
                 />
+
+                <p>This is megaparsonalz</p>
                 <button
                   type="submit"
                   // type="button"
                   onClick={handleWrongPassword}
-                  className="mt-4 bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
+                  className="mt-4 bg-custom-red text-white text-[20px] px-[21px] py-[8px] tracking-wider"
                   // disabled={!verified}
                   // onClick={handleNextStep}
                 >
