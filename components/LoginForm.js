@@ -135,7 +135,7 @@ function LoginForm() {
                   // onClick={handleNextStep}
                 >
                   Submit
-                </button>)
+                </button>
               </div>
 
               {/* {showModal && <PhotoUpload setShowModal={setShowModal} />} */}
