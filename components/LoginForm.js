@@ -60,7 +60,7 @@ function LoginForm() {
 
   return (
     <div className="">
-      <div className="mt-[50px] flex flex-col items-center">
+      <div className="mt-[10px] flex flex-col items-center">
         <p className="text-custom-gray2 text-lg">
           Is this your first time posting?
         </p>
@@ -68,7 +68,7 @@ function LoginForm() {
           Start Here
         </button>
 
-        <p className=" mt-[40px] text-custom-gray2 text-lg">
+        <p className=" mt-[10px] text-custom-gray2 text-lg">
           Already have a login?
         </p>
         <p className="text-custom-gray2 text-[25px]">Login</p>
@@ -81,11 +81,11 @@ function LoginForm() {
           onSubmit={handleSubmit}
         >
           {(formik) => (
-            <Form className="mx-[30px]">
-              <div className="space-y-[9px]">
+            <Form className="mx-[30px]  flex flex-col justify-center items-center">
+              <div className="space-y-[9px]  flex flex-col justify-center items-center">
                 <Field
                   placeholder="Email"
-                  className="w-full px-[12px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
+                  className="px-[15px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
                   id="email"
                   name="email"
                   required
@@ -93,7 +93,7 @@ function LoginForm() {
                     
                
                   <Field
-                     className="w-full px-[12px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
+                     className=" px-[15px] py-[1px] text-lg outline-none border-2 border-custom-gray4/70 focus:border-custom-blue2/60 focus:shadow-around-blue transition duration-300 rounded"
                     placeholder="Password"
                     name="password"
                     type="password"
@@ -112,7 +112,7 @@ function LoginForm() {
                   onChange={() => setVerified(true)}
                 /> */}
                 <Image
-                  src="/images/captcha.png"
+                  src="/images/captures.jpeg"
                   alt="captcha"
                   width={228}
                   height={55}
@@ -134,7 +134,7 @@ function LoginForm() {
                   // disabled={!verified}
                   // onClick={handleNextStep}
                 >
-                  Submit
+                 SUBMIT
                 </button>
               </div>
 
@@ -152,8 +152,8 @@ function LoginForm() {
         height={154}
       />
 
-      <p className="mt-[10px] text-center text-sm text-custom-blue2 hover:underline">
-        Forgot Password
+      <p className="mt-[10px] uppercase text-center text-sm text-custom-blue2 hover:underline">
+        Forgot Password?
       </p>
     </div>
   );
