@@ -125,6 +125,7 @@ function LoginForm() {
                   name="captcha"
                   type="captcha"
                   autoComplete="on"
+                  placeholder="Enter code from the picture"
                   required
                 />
          <button
